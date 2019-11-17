@@ -66,5 +66,4 @@ public class MessageController {
         Map<String, String> message = getMessage(id);
         messages.remove(message);
     }
-
 }
