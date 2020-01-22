@@ -1,4 +1,4 @@
-package com.example.sarafan.repo;
+package com.example.sarafan.repository;
 
 import com.example.sarafan.domain.Message;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -15,10 +15,10 @@ import java.time.LocalDateTime;
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonView(Views.Id.class)
-    private Long Id;
+    @JsonView(Views.id.class)
+    private Long id;
 
-    @JsonView(Views.IdName.class)
+    @JsonView(Views.idName.class)
     private String text;
 
     @Column(updatable = false)
@@ -27,11 +27,11 @@ public class Message {
     private LocalDateTime creationDate;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getText() {
