@@ -33,14 +33,10 @@ public class MainController {
 
         HashMap<Object, Object> data = new HashMap<>();
 
-        data.put("profile", user);
-
-        List<Message> messages = null;
-
         if (user != null) {
-            messages = messageRepo.findAll();
+            data.put("profile", user);
+            data.put("messages", messageRepo.findAll());
         }
-        data.put("messages", messages);
 
         model.addAttribute("frontendData", data);
         model.addAttribute("isDevMode", "dev".equals(profile));
