@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <v-app-bar app>
-            <v-toolbar-title>Асоциальная сеть ёпта</v-toolbar-title>
+            <v-toolbar-title>Асоциальная сеть</v-toolbar-title>
             <v-btn v-if="profile" text :disabled="$route.path === '/'" @click="showMessages">
                 Messages
             </v-btn>
