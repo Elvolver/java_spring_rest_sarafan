@@ -3,7 +3,10 @@ package com.example.sarafan.controller;
 import com.example.sarafan.domain.Comment;
 import com.example.sarafan.domain.User;
 import com.example.sarafan.domain.Views;
+import com.example.sarafan.dto.EventType;
+import com.example.sarafan.dto.ObjectType;
 import com.example.sarafan.service.CommentService;
+import com.example.sarafan.util.WsSender;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -23,7 +26,7 @@ public class CommentController {
     }
 
     @PostMapping
-    @JsonView(Views.FullMessage.class)
+    @JsonView(Views.FullComment.class)
     public Comment create(
             @RequestBody Comment comment,
             @AuthenticationPrincipal User user

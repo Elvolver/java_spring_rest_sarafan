@@ -35,14 +35,16 @@
                 'updateMessageAction'
             ]),
             save() {
-                const message = {
-                    id: this.id,
-                    text: this.text
-                }
-
                 if (this.id) {
+                    const message = {
+                        id: this.id,
+                        text: this.text
+                    }
                     this.updateMessageAction(message)
                 } else {
+                    const message = {
+                        text: this.text
+                    }
                     this.addMessageAction(message)
                 }
                 this.text = ''
