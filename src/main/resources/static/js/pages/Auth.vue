@@ -1,5 +1,5 @@
 <template>
-    <v-container v-if="!profile">
+    <v-container>
         Необходимо авторизоваться через <a href="/login">Google</a>
     </v-container>
 </template>

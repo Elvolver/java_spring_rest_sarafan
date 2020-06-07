@@ -1,27 +1,19 @@
 <template>
     <v-card>
         <v-flex v-if="type === 'href'" xs12 sm6 offset-sm3>
-            <v-img v-if="message.linkCover"
-                   :src="message.linkCover"
-                   aspect-ratio="2.75">
-            </v-img>
+            <v-img v-if="message.linkCover" :src="message.linkCover" aspect-ratio="2.75"></v-img>
             <v-card-title>
                 <div>
                     <h3>
                         <a :href="message.link">{{message.linkTitle || message.link}}</a>
                     </h3>
-                    <div v-if="message.linkDescription">
-                        {{message.linkDescription}}
-                    </div>
+                    <div v-if="message.linkDescription">{{message.linkDescription}}</div>
                 </div>
             </v-card-title>
         </v-flex>
         <v-flex v-if="type === 'image'" xs12 sm6 offset-sm3>
             <a :href="message.link">
-                <v-img v-if="message.linkCover"
-                       :src="message.linkCover"
-                       aspect-ratio="2.75">
-                </v-img>
+                <v-img v-if="message.linkCover" :src="message.linkCover" aspect-ratio="2.75"></v-img>
                 {{message.link}}
             </a>
         </v-flex>
@@ -32,13 +24,12 @@
 </template>
 
 <script>
-    import YouTube from "./YouTube.vue";
+    import YouTube from './YouTube.vue'
+
     export default {
-        name: "Media",
+        name: 'Media',
         components: { YouTube },
-        props: [
-            'message',
-        ],
+        props: ['message'],
         data() {
             return {
                 type: 'href'

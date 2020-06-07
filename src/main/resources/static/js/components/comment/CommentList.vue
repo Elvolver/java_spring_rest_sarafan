@@ -14,25 +14,22 @@
 
             <comment-item
                     :comment="item"
-                    :key="item + index"
+                    :key="'item' + index"
             ></comment-item>
         </template>
-        <comment-form
-                :message-id="messageId"
-        ></comment-form>
+
+        <comment-form :message-id="messageId"></comment-form>
     </v-list>
 </template>
 
 <script>
-    import CommentItem from "./CommentItem.vue";
-    import CommentForm from "./CommentForm.vue";
+    import CommentForm from './CommentForm.vue'
+    import CommentItem from './CommentItem.vue'
+
     export default {
-        name: "CommentList",
+        name: 'CommentList',
         components: {CommentForm, CommentItem},
-        props: [
-            'comments',
-            'messageId'
-        ]
+        props: ['comments', 'messageId']
     }
 </script>
 
