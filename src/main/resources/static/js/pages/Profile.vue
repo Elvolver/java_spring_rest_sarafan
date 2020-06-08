@@ -13,8 +13,21 @@
                             <v-flex>{{profile.locale}}</v-flex>
                             <v-flex>{{profile.gender}}</v-flex>
                             <v-flex>{{profile.lastVisit}}</v-flex>
-                            <v-flex>{{profile.subscriptions && profile.subscriptions.length}} subscriptions</v-flex>
-                            <v-flex>{{profile.subscribers && profile.subscribers.length}} subscribers</v-flex>
+                            <v-flex>
+                                {{profile.subscriptions && profile.subscriptions.length}} subscriptions
+                            </v-flex>
+                            <router-link
+                                    v-if="isMyProfile"
+                                    :to="`/subscriptions/${profile.id}`"
+
+                            >
+                                {{profile.subscribers && profile.subscribers.length}} subscribers
+                            </router-link>
+                            <v-flex
+                                    v-else
+                            >
+                                {{profile.subscribers && profile.subscribers.length}} subscribers
+                            </v-flex>
                         </v-layout>
                     </v-flex>
                 </v-layout>
@@ -42,7 +55,7 @@
         computed: {
             isMyProfile() {
                 return !this.$route.params.id ||
- this.$route.params.id === this.$store.state.profile.id
+                    this.$route.params.id === this.$store.state.profile.id
             },
             isISubscribed() {
                 return this.profile.subscribers &&
