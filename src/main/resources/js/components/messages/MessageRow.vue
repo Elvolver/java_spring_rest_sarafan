@@ -11,7 +11,7 @@
         </v-card-text>
         <media v-if="message.link" :message="message"></media>
         <v-card-actions>
-            <v-btn value="Edit" @click="edit" small text round>Edit</v-btn>
+            <v-btn value="Edit" @click="edit" small text rounded>Edit</v-btn>
             <v-btn icon @click="del" small>
                 <v-icon>mdi-delete</v-icon>
             </v-btn>
@@ -25,9 +25,9 @@
 
 <script>
     import {mapActions} from 'vuex'
-    import Media from "components/media/Media.vue"
-    import CommentList from "components/comment/CommentList.vue"
-    import UserLink from "components/UserLink.vue"
+    import Media from "js/components/media/Media.vue"
+    import CommentList from "js/components/comment/CommentList.vue"
+    import UserLink from "js/components/UserLink.vue"
 
     export default {
         props: ['message', 'editMessage'],

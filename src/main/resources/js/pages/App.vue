@@ -27,7 +27,7 @@ v-if="profile"
 
 <script>
     import { mapState, mapMutations } from 'vuex'
-    import { addHandler } from 'util/ws'
+    import { addHandler } from 'js/util/ws'
 
     export default {
         computed: mapState(['profile']),

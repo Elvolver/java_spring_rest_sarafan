@@ -11,6 +11,7 @@ import com.example.sarafan.dto.ObjectType;
 import com.example.sarafan.repo.MessageRepo;
 import com.example.sarafan.repo.UserSubscriptionRepo;
 import com.example.sarafan.util.WsSender;
+import io.sentry.Sentry;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -46,7 +47,7 @@ public class MessageService {
                           WsSender wsSender) {
         this.messageRepo = messageRepo;
         this.userSubscriptionRepo = userSubscriptionRepo;
-        this.wsSender = wsSender.getSender(ObjectType.MESSAGE, Views.IdName.class);
+        this.wsSender = wsSender.getSender(ObjectType.MESSAGE, Views.FullMessage.class);
     }
 
 
@@ -97,7 +98,6 @@ public class MessageService {
     }
 
     public Message update(Message messageFromDb, Message message) throws IOException {
-        //BeanUtils.copyProperties(message, messageFromDb, "id", "comments", "creationDate", "author");
         messageFromDb.setText(message.getText());
         fillMeta(messageFromDb);
         Message updatedMessage = messageRepo.save(messageFromDb);

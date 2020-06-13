@@ -2,7 +2,7 @@
     <v-container>
         <v-layout justify-space-around>
             <v-list>
-                <v-list-item-title
+                <v-list-tile
                         v-for="item in subscriptions"
                 >
                     <user-link
@@ -10,19 +10,20 @@
                             size="24"
                     ></user-link>
 
-                    <v-btn @click="changeSubscriptionStatus(item.subscriber.id)"
+                    <v-btn
+                        @click="changeSubscriptionStatus(item.subscriber.id)"
                     >
                         {{item.active ? "Dismiss" : "Approve"}}
                     </v-btn>
-                </v-list-item-title>
+                </v-list-tile>
             </v-list>
         </v-layout>
     </v-container>
 </template>
 
 <script>
-    import profileApi from "api/profile"
-    import UserLink from "components/UserLink.vue";
+    import profileApi from "js/api/profile"
+    import UserLink from "js/components/UserLink.vue";
     export default {
         name: "Subscriptions",
         components: {UserLink},
@@ -35,8 +36,9 @@
             async changeSubscriptionStatus(subscriberId) {
                 await profileApi.changeSubscriptionStatus(subscriberId)
 
-                let subscriptionIndex = this.subscriptions.findIndex(item =>
-                    item.subscriber.id === subscriberId);
+                const subscriptionIndex = this.subscriptions.findIndex(item =>
+                    item.subscriber.id === subscriberId
+                )
                 const subscription = this.subscriptions[subscriptionIndex]
 
                 this.subscriptions = [
@@ -45,8 +47,7 @@
                         ...subscription,
                         active: !subscription.active
                     },
-                    ...this.subscriptions.slice(subscriptionIndex + 1),
-
+                    ...this.subscriptions.slice(subscriptionIndex + 1)
                 ]
             }
         },
